@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+/* Configuração de Origem (Source) para Tailwind v4:
+  Como o index.css está dentro de 'src', usamos './' para indicar 
+  que os arquivos estão na mesma pasta ou em subpastas.
+*/
+@source "./App.jsx";
+@source "./components/**/*.{jsx,js}";
+
+/* Estilos Globais Base */
+body {
+  margin: 0;
+  /* Cor de fundo padrão para evitar o flash branco ao carregar */
+  background-color: #0f172a; 
+  color: #cbd5e1; /* slate-300 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Garante que o container principal ocupe a tela toda */
+#root {
+  min-height: 100vh;
+}
