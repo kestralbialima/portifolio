@@ -22,7 +22,7 @@ const Portfolio = ({ theme, activeTheme, onSetTheme }) => {
       type: "Landing Page High-Visual",
       title: "Washington Cezar Tattoo",
       demo: "kestralbialima.github.io/projeto-wcezar/",
-      image: "site-wcezar.png",
+      image: "site-wcezar.jpg",
       description: "Design imersivo focado em atrair leads qualificados e valorizar o trabalho do artista.",
       features: [
         { label: "Galeria Imersiva", icon: <Palette size={14} /> },
