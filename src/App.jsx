@@ -2,13 +2,13 @@ import './index.css'; // Certifique-se de que esta linha existe no topo do App.j
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Search, Palette, Code2, Rocket, Smartphone, 
-  ShoppingCart, Building2, X, ChevronRight 
+import {
+  Search, Palette, Code2, Rocket, Smartphone,
+  ShoppingCart, Building2, X, ChevronRight
 } from 'lucide-react';
 
 // 1. Importando os dados
-import { themes } from './data/themes'; 
+import { themes } from './data/themes';
 
 // 2. Importando os componentes
 import Navbar from './components/Navbar';
@@ -63,23 +63,23 @@ const App = () => {
 
   return (
     <div className={`min-h-screen font-sans text-slate-300 transition-colors duration-1000 overflow-x-hidden relative ${theme.bg}`}>
-      
+
       <BackgroundEffects theme={theme} />
 
-      <Navbar 
-        theme={theme} 
-        scrolled={scrolled} 
-        onScrollTo={scrollTo} 
-        setIsMenuOpen={setIsMenuOpen} 
+      <Navbar
+        theme={theme}
+        scrolled={scrolled}
+        onScrollTo={scrollTo}
+        setIsMenuOpen={setIsMenuOpen}
       />
 
       {/* Menu Mobile Overlay */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, x: '100%' }} 
-            animate={{ opacity: 1, x: 0 }} 
-            exit={{ opacity: 0, x: '100%' }} 
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
             className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-10"
           >
             <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-white"><X size={32} /></button>
@@ -101,11 +101,26 @@ const App = () => {
             <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
               {steps.map((step, i) => (
-                <div key={i} className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-sm">
+                <motion.div
+                  key={i}
+                  // Animação de entrada ao rolar a página
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.5 }}
+                  // Efeito de Salto ao passar o mouse
+                  whileHover={{
+                    y: -10,
+                    scale: 1.02,
+                    backgroundColor: "rgba(255, 255, 255, 0.06)",
+                    borderColor: "rgba(255, 255, 255, 0.2)"
+                  }}
+                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-sm cursor-default transition-colors"
+                >
                   <div className={`${theme.accent} mb-6`}>{step.icon}</div>
                   <h4 className="text-lg font-black text-white mb-3 uppercase">{step.title}</h4>
                   <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -118,12 +133,32 @@ const App = () => {
             <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
               {plans.map((plan, i) => (
-                <div key={i} className={`p-10 rounded-[3rem] border transition-all ${plan.popular ? 'bg-white/[0.05] border-white/20 shadow-2xl' : 'bg-white/[0.01] border-white/5'}`}>
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  // Salto com física de mola
+                  whileHover={{
+                    scale: 1.05,
+                    y: -8,
+                    transition: { type: "spring", stiffness: 400, damping: 10 }
+                  }}
+                  className={`p-10 rounded-[3rem] border transition-all ${plan.popular ? 'bg-white/[0.05] border-white/20 shadow-2xl' : 'bg-white/[0.01] border-white/5'
+                    }`}
+                >
                   <div className={`${theme.accent} mb-8`}>{plan.icon}</div>
                   <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">{plan.title}</h3>
                   <p className="text-slate-400 text-xs mb-8 leading-relaxed font-medium">{plan.desc}</p>
-                  <button onClick={() => scrollTo('contato')} className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-widest ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white'}`}>Saber Mais</button>
-                </div>
+                  <button
+                    onClick={() => scrollTo('contato')}
+                    className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95 ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white hover:bg-white/10'
+                      }`}
+                  >
+                    Saber Mais
+                  </button>
+                </motion.div>
               ))}
             </div>
           </div>
@@ -132,28 +167,42 @@ const App = () => {
         <Portfolio theme={theme} activeTheme={activeTheme} onSetTheme={setActiveTheme} />
 
         {/* Seção FAQ */}
-        <section className="py-24 px-6 border-t border-white/5 z-20 relative">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-black text-white uppercase mb-12 text-center italic underline decoration-white/10 underline-offset-8">Dúvidas Frequentes</h2>
-            <div className="space-y-4">
-              {faqs.map((faq, i) => (
-                <div key={i} className="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden">
-                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full p-6 text-left flex justify-between items-center hover:bg-white/[0.05] transition-colors">
-                    <span className="font-bold text-white uppercase text-xs tracking-tight">{faq.q}</span>
-                    <ChevronRight className={`transition-transform duration-500 ${openFaq === i ? 'rotate-90' : ''} ${theme.accent}`} />
-                  </button>
-                  <AnimatePresence>
-                    {openFaq === i && (
-                      <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} className="px-6 pb-6 text-slate-400 text-xs leading-relaxed font-medium">
-                        {faq.a}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden"
+            >
+              <button
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full p-6 text-left flex justify-between items-center hover:bg-white/[0.05] transition-colors group"
+              >
+                <span className="font-bold text-white uppercase text-xs tracking-tight">{faq.q}</span>
+                <ChevronRight className={`transition-transform duration-500 ${openFaq === i ? 'rotate-90' : ''} ${theme.accent}`} />
+              </button>
+
+              <AnimatePresence>
+                {openFaq === i && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="px-6 pb-6 text-slate-400 text-xs leading-relaxed font-medium"
+                  >
+                    <div className="pt-2 border-t border-white/5">
+                      {faq.a}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          ))}
+        </div>
 
         <Contact theme={theme} />
       </main>
