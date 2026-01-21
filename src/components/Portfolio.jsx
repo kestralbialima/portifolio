@@ -11,7 +11,8 @@ import {
   MessageSquare,
   MapPin,
   Mail,
-  Linkedin
+  Linkedin,
+  Instagram
 } from 'lucide-react';
 import { themes } from '../data/themes';
 
@@ -37,7 +38,9 @@ const Portfolio = ({ theme, activeTheme, onSetTheme }) => {
     {
       category: "gastronomia",
       type: "Vitrine Digital",
-      title: "Doce Requinte Bolos",
+      demo: "kestralbialima.github.io/confeitaria/",
+      image: "confeitaria.PNG",
+      title: "Confeitaria Artesanal",
       description: "Vendas diretas via WhatsApp com zero custo de manutenção de banco de dados.",
       features: [
         { label: "Carrinho WhatsApp", icon: <ShoppingCart size={14} /> },
@@ -49,13 +52,15 @@ const Portfolio = ({ theme, activeTheme, onSetTheme }) => {
     {
       category: "corporativo",
       type: "Portal Business High-Authority",
-      title: "Mendes Advocacia",
+      title: "Marco Alcaraz assessoria jurídica",
+       demo: "kestralbialima.github.io/marco-/",
+      image: "marco.jpeg",
       description: "Portal jurídico focado em autoridade digital, projetado para transformar visitantes em clientes através de uma jornada clara e profissional.",
       features: [
         { label: "Botão WhatsApp Direto", icon: <MessageSquare size={14} /> },
         { label: "Mapa Google Interativo", icon: <MapPin size={14} /> },
         { label: "Link de E-mail Smart", icon: <Mail size={14} /> },
-        { label: "Redes Sociais Integradas", icon: <Linkedin size={14} /> }
+        { label: "Redes Sociais Integradas", icon: <Instagram size={14} /> }
       ],
       imageColor: "from-cyan-900/40 to-black"
     }

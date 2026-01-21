@@ -43,190 +43,222 @@ const App = () => {
 
   // Dados organizados para as seções
   const steps = [
-    { title: "Estratégia", desc: "Mapeamos o DNA do seu negócio para criar uma rota de sucesso.", icon: <Search className="w-6 h-6" /> },
-    { title: "Design", desc: "Interfaces exclusivas que comunicam valor à primeira vista.", icon: <Palette className="w-6 h-6" /> },
-    { title: "Engenharia", desc: "Código performático focado em velocidade e conversão.", icon: <Code2 className="w-6 h-6" /> },
-    { title: "Resultado", desc: "Entrega total com suporte para você focar no que importa.", icon: <Rocket className="w-6 h-6" /> }
+    {
+      title: "Estratégia",
+      desc: "Realizamos uma imersão profunda no DNA do seu negócio para identificar oportunidades e traçar uma rota estratégica focada em conversão e autoridade digital.",
+      icon: <Search className="w-6 h-6" />
+    },
+    {
+      title: "Design",
+      desc: "Desenvolvemos interfaces exclusivas e imersivas (UI/UX) que não apenas comunicam valor à primeira vista, mas guiam o usuário intuitivamente até a ação de compra.",
+      icon: <Palette className="w-6 h-6" />
+    },
+    {
+      title: "Engenharia",
+      desc: "Construímos sistemas com código limpo e ultraperformático, utilizando tecnologias de ponta para garantir carregamento instantâneo e segurança robusta de dados.",
+      icon: <Code2 className="w-6 h-6" />
+    },
+    {
+      title: "Resultado",
+      desc: "Entregamos a solução completa com suporte técnico dedicado, permitindo que você foque na gestão do seu negócio enquanto sua presença digital escala as vendas.",
+      icon: <Rocket className="w-6 h-6" />
+    }
   ];
 
-  const plans = [
-    { title: "Landing Page", desc: "Focada em conversão rápida e anúncios diretos.", icon: <Smartphone /> },
-    { title: "Vitrine Digital", desc: "Catálogo inteligente integrado ao WhatsApp sem mensalidade.", icon: <ShoppingCart />, popular: true },
-    { title: "Sistema Custom", desc: "Soluções robustas com painéis administrativos sob medida.", icon: <Building2 /> }
-  ];
+const plans = [
+  { title: "Landing Page", desc: "Páginas de alta conversão otimizadas para tráfego pago, focadas em transformar cliques em vendas reais com carregamento instantâneo.", icon: <Smartphone /> },
+  { title: "Vitrine Digital", desc: "Seu catálogo completo e inteligente integrado diretamente ao WhatsApp, permitindo vendas 24h sem as taxas abusivas de aplicativos de entrega.", icon: <ShoppingCart />, popular: true },
+  { title: "Sistema Custom", desc: "Desenvolvimento de painéis administrativos sob medida e soluções robustas para gerenciar processos complexos com facilidade e segurança.", icon: <Building2 /> }
 
-  const faqs = [
-    { q: "Vou ficar preso a mensalidades?", a: "Não para sites padrão. Você paga apenas pelo desenvolvimento." },
-    { q: "O site é otimizado para o Google?", a: "Sim. Aplicamos as melhores práticas de SEO técnico e velocidade." },
-    { q: "Terei acesso aos meus dados?", a: "Com certeza. Ao final do projeto, você recebe total propriedade." }
-  ];
+]; const faqs = [
+  {
+    q: "Vou ficar preso a mensalidades?",
+    a: "Para sites padrão e vitrines, você paga apenas pelo desenvolvimento, sem taxas mensais. Mensalidades de manutenção só se aplicam a Sistemas Customizados que exigem infraestrutura robusta de banco de dados e servidores dedicados."
+  },
+  {
+    q: "O site funciona bem em celulares?",
+    a: "Sim. Todos os projetos são desenvolvidos com a metodologia 'Mobile-First', garantindo que a experiência de navegação seja impecável e veloz em smartphones, tablets e computadores."
+  },
+  {
+    q: "O site é otimizado para o Google?",
+    a: "Sim. Aplicamos as melhores práticas de SEO técnico, como semântica HTML correta e otimização de performance, para que seu negócio tenha a melhor visibilidade possível nos motores de busca."
+  },
+  {
+    q: "Terei acesso aos meus dados?",
+    a: "Com certeza. Ao final do projeto, você recebe total propriedade do código-fonte e acesso aos dados. Transparência e liberdade para o cliente são prioridades na nossa entrega."
+  },
+  {
+    q: "Quanto tempo demora para o site ficar pronto?",
+    a: "O prazo varia conforme a complexidade. Landing Pages costumam ser entregues em até 7 dias, enquanto sistemas mais robustos passam por um ciclo de design e engenharia detalhado para garantir a máxima qualidade."
+  }
+];
 
-  return (
-    <div className={`min-h-screen font-sans text-slate-300 transition-colors duration-1000 overflow-x-hidden relative ${theme.bg}`}>
+return (
+  <div className={`min-h-screen font-sans text-slate-300 transition-colors duration-1000 overflow-x-hidden relative ${theme.bg}`}>
 
-      <BackgroundEffects theme={theme} />
+    <BackgroundEffects theme={theme} />
 
-      <Navbar
-        theme={theme}
-        scrolled={scrolled}
-        onScrollTo={scrollTo}
-        setIsMenuOpen={setIsMenuOpen}
-      />
+    <Navbar
+      theme={theme}
+      scrolled={scrolled}
+      onScrollTo={scrollTo}
+      setIsMenuOpen={setIsMenuOpen}
+    />
 
-      {/* Menu Mobile Overlay */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: '100%' }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: '100%' }}
-            className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-10"
-          >
-            <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-white"><X size={32} /></button>
-            {['processo', 'solucoes', 'catalogo'].map(id => (
-              <button key={id} onClick={() => scrollTo(id)} className="text-3xl font-black uppercase text-white">{id}</button>
+    {/* Menu Mobile Overlay */}
+    <AnimatePresence>
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0, x: '100%' }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: '100%' }}
+          className="fixed inset-0 z-[200] bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-10"
+        >
+          <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-white"><X size={32} /></button>
+          {['processo', 'solucoes', 'catalogo'].map(id => (
+            <button key={id} onClick={() => scrollTo(id)} className="text-3xl font-black uppercase text-white">{id}</button>
+          ))}
+          <button onClick={() => scrollTo('contato')} className={`px-10 py-4 ${theme.button} text-white rounded-2xl font-black uppercase`}>Orçamento</button>
+        </motion.div>
+      )}
+    </AnimatePresence>
+
+    <main>
+      <Hero theme={theme} activeTheme={activeTheme} />
+
+      {/* Seção Metodologia */}
+      <section id="processo" className="py-24 px-6 border-t border-white/5 bg-white/[0.01] z-20">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-black text-white uppercase mb-4">Metodologia Core</h2>
+          <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+            {steps.map((step, i) => (
+              <motion.div
+                key={i}
+                // Animação de entrada ao rolar a página
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                // Efeito de Salto ao passar o mouse
+                whileHover={{
+                  y: -10,
+                  scale: 1.02,
+                  backgroundColor: "rgba(255, 255, 255, 0.06)",
+                  borderColor: "rgba(255, 255, 255, 0.2)"
+                }}
+                className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-sm cursor-default transition-colors"
+              >
+                <div className={`${theme.accent} mb-6`}>{step.icon}</div>
+                <h4 className="text-lg font-black text-white mb-3 uppercase">{step.title}</h4>
+                <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
+              </motion.div>
             ))}
-            <button onClick={() => scrollTo('contato')} className={`px-10 py-4 ${theme.button} text-white rounded-2xl font-black uppercase`}>Orçamento</button>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <main>
-        <Hero theme={theme} activeTheme={activeTheme} />
-
-        {/* Seção Metodologia */}
-        <section id="processo" className="py-24 px-6 border-t border-white/5 bg-white/[0.01] z-20">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl font-black text-white uppercase mb-4">Metodologia Core</h2>
-            <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
-              {steps.map((step, i) => (
-                <motion.div
-                  key={i}
-                  // Animação de entrada ao rolar a página
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  // Efeito de Salto ao passar o mouse
-                  whileHover={{
-                    y: -10,
-                    scale: 1.02,
-                    backgroundColor: "rgba(255, 255, 255, 0.06)",
-                    borderColor: "rgba(255, 255, 255, 0.2)"
-                  }}
-                  className="p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-sm cursor-default transition-colors"
-                >
-                  <div className={`${theme.accent} mb-6`}>{step.icon}</div>
-                  <h4 className="text-lg font-black text-white mb-3 uppercase">{step.title}</h4>
-                  <p className="text-slate-500 text-xs leading-relaxed">{step.desc}</p>
-                </motion.div>
-              ))}
-            </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Seção Soluções */}
-        <section id="solucoes" className="py-24 px-6 z-20 relative border-t border-white/5">
-          <div className="max-w-7xl mx-auto text-center">
-            <h2 className="text-3xl font-black text-white uppercase mb-4">Soluções Smart</h2>
-            <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
-              {plans.map((plan, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  // Salto com física de mola
-                  whileHover={{
-                    scale: 1.05,
-                    y: -8,
-                    transition: { type: "spring", stiffness: 400, damping: 10 }
-                  }}
-                  className={`p-10 rounded-[3rem] border transition-all ${plan.popular ? 'bg-white/[0.05] border-white/20 shadow-2xl' : 'bg-white/[0.01] border-white/5'
+      {/* Seção Soluções */}
+      <section id="solucoes" className="py-24 px-6 z-20 relative border-t border-white/5">
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-3xl font-black text-white uppercase mb-4">Soluções Smart</h2>
+          <div className={`h-1 w-20 mx-auto rounded-full bg-gradient-to-r ${theme.gradient} mb-16`}></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+            {plans.map((plan, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                // Salto com física de mola
+                whileHover={{
+                  scale: 1.05,
+                  y: -8,
+                  transition: { type: "spring", stiffness: 400, damping: 10 }
+                }}
+                className={`p-10 rounded-[3rem] border transition-all ${plan.popular ? 'bg-white/[0.05] border-white/20 shadow-2xl' : 'bg-white/[0.01] border-white/5'
+                  }`}
+              >
+                <div className={`${theme.accent} mb-8`}>{plan.icon}</div>
+                <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">{plan.title}</h3>
+                <p className="text-slate-400 text-xs mb-8 leading-relaxed font-medium">{plan.desc}</p>
+                <button
+                  onClick={() => scrollTo('contato')}
+                  className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95 ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white hover:bg-white/10'
                     }`}
                 >
-                  <div className={`${theme.accent} mb-8`}>{plan.icon}</div>
-                  <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">{plan.title}</h3>
-                  <p className="text-slate-400 text-xs mb-8 leading-relaxed font-medium">{plan.desc}</p>
-                  <button
-                    onClick={() => scrollTo('contato')}
-                    className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all active:scale-95 ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white hover:bg-white/10'
-                      }`}
-                  >
-                    Saber Mais
-                  </button>
-                </motion.div>
-              ))}
-            </div>
+                  Saber Mais
+                </button>
+              </motion.div>
+            ))}
           </div>
-        </section>
-
-        <Portfolio theme={theme} activeTheme={activeTheme} onSetTheme={setActiveTheme} />
-
-        {/* Seção FAQ */}
-        <div className="space-y-4">
-          {faqs.map((faq, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden"
-            >
-              <button
-                onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                className="w-full p-6 text-left flex justify-between items-center hover:bg-white/[0.05] transition-colors group"
-              >
-                <span className="font-bold text-white uppercase text-xs tracking-tight">{faq.q}</span>
-                <ChevronRight className={`transition-transform duration-500 ${openFaq === i ? 'rotate-90' : ''} ${theme.accent}`} />
-              </button>
-
-              <AnimatePresence>
-                {openFaq === i && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="px-6 pb-6 text-slate-400 text-xs leading-relaxed font-medium"
-                  >
-                    <div className="pt-2 border-t border-white/5">
-                      {faq.a}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
-          ))}
         </div>
+      </section>
 
-        <Contact theme={theme} />
-      </main>
+      <Portfolio theme={theme} activeTheme={activeTheme} onSetTheme={setActiveTheme} />
 
-      {/* Seletor de Temas Flutuante */}
-      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[150] px-4 w-full max-w-lg">
-        <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-2 rounded-3xl shadow-2xl flex justify-between items-center gap-2">
-          {Object.keys(themes).map((t) => (
+      {/* Seção FAQ */}
+      <div className="space-y-4">
+        {faqs.map((faq, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden"
+          >
             <button
-              key={t}
-              onClick={() => setActiveTheme(t)}
-              className={`flex-1 py-3 rounded-2xl text-[10px] sm:text-xs font-bold transition-all uppercase ${activeTheme === t ? 'bg-white text-black shadow-lg' : 'text-white hover:bg-white/10'}`}
+              onClick={() => setOpenFaq(openFaq === i ? null : i)}
+              className="w-full p-6 text-left flex justify-between items-center hover:bg-white/[0.05] transition-colors group"
             >
-              {themes[t].name}
+              <span className="font-bold text-white uppercase text-xs tracking-tight">{faq.q}</span>
+              <ChevronRight className={`transition-transform duration-500 ${openFaq === i ? 'rotate-90' : ''} ${theme.accent}`} />
             </button>
-          ))}
-        </div>
+
+            <AnimatePresence>
+              {openFaq === i && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  className="px-6 pb-6 text-slate-400 text-xs leading-relaxed font-medium"
+                >
+                  <div className="pt-2 border-t border-white/5">
+                    {faq.a}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
+        ))}
       </div>
 
-      <footer className="py-16 text-center opacity-40 text-[11px] font-black uppercase tracking-[1.5em] z-20 relative">
-        Core.Build 2026
-      </footer>
+      <Contact theme={theme} />
+    </main>
+
+    {/* Seletor de Temas Flutuante */}
+    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[150] px-4 w-full max-w-lg">
+      <div className="bg-white/10 backdrop-blur-2xl border border-white/20 p-2 rounded-3xl shadow-2xl flex justify-between items-center gap-2">
+        {Object.keys(themes).map((t) => (
+          <button
+            key={t}
+            onClick={() => setActiveTheme(t)}
+            className={`flex-1 py-3 rounded-2xl text-[10px] sm:text-xs font-bold transition-all uppercase ${activeTheme === t ? 'bg-white text-black shadow-lg' : 'text-white hover:bg-white/10'}`}
+          >
+            {themes[t].name}
+          </button>
+        ))}
+      </div>
     </div>
-  );
+
+    <footer className="py-16 text-center opacity-40 text-[11px] font-black uppercase tracking-[1.5em] z-20 relative">
+      Core.Build 2026
+    </footer>
+  </div>
+);
 };
 
 export default App;

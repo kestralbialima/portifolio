@@ -13,6 +13,9 @@ body {
   /* Cor de fundo padrão para evitar o flash branco ao carregar */
   background-color: #0f172a; 
   color: #cbd5e1; /* slate-300 */
+  font-size: 1.125rem; 
+  line-height: 1.6; /* Melhora o espaçamento entre linhas para UX */
+  -webkit-font-smoothing: antialiased;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

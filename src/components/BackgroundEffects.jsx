@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const ParticlesBackground = memo(({ themeColor }) => {
   const particles = useMemo(() => {
-    return Array.from({ length: 40 }).map((_, i) => ({
+    return Array.from({ length: 60 }).map((_, i) => ({
       id: i,
       size: Math.random() * 2 + 1,
       x: Math.random() * 100,
