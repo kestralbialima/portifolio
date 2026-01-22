@@ -16,6 +16,7 @@ import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import BackgroundEffects from './components/BackgroundEffects';
+import About from './components/About';
 
 const App = () => {
   const [activeTheme, setActiveTheme] = useState('default');
@@ -235,6 +236,8 @@ return (
           </motion.div>
         ))}
       </div>
+      
+      <About theme={theme} />
 
       <Contact theme={theme} />
     </main>
