@@ -32,7 +32,6 @@ exports.handler = async (event, context) => {
           },
         ],
         access_token: accessToken,
-        test_event_code:'TEST22844'
       }
     );
 
