@@ -26,7 +26,7 @@ exports.handler = async (event, context) => {
             action_source: 'website',
             user_data: {
               // Na Netlify, pegamos o IP e User Agent assim:
-              client_ip_address: event.headers['client-ip'],
+              client_ip_address: event.headers['x-nf-client-connection-ip'] || event.headers['client-ip'],
               client_user_agent: event.headers['user-agent'],
             },
           },
