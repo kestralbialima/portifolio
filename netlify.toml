@@ -1,0 +1,16 @@
+[build]
+  # Comando que o Vite usa para gerar a versão final do site
+  command = "npm run build"
+  # Pasta que contém o site pronto para ir ao ar
+  publish = "dist"
+
+[functions]
+  # Aqui avisamos que sua Serverless Function da CAPI está na pasta api
+  directory = "api"
+
+[[redirects]]
+  # Como o React é uma SPA (Single Page Application), isso garante
+  # que as rotas funcionem corretamente se o usuário atualizar a página
+  from = "/*"
+  to = "/index.html"
+  status = 200
