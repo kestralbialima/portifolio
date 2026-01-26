@@ -14,7 +14,7 @@ const Contact = ({ theme }) => {
 
     // 3. Avisamos a sua CAPI (Serverless Function)
     try {
-      fetch('/api/fb-event', {
+      fetch('/.netlify/functions/fb-event', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
