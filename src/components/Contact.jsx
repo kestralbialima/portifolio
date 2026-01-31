@@ -3,16 +3,15 @@ import { MessageSquare, Linkedin } from 'lucide-react';
 
 const Contact = ({ theme }) => {
   // Esta função será o "cérebro" do clique
-  const handleContact = async (platform, url) => {
-    // 1. Criamos o ID único (Event ID)
+const handleContact = async (platform, url) => {
     const eventId = `id-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
 
-    // 2. Avisamos o Pixel (que está no seu index.html)
+    // 1. Pixel (Navegador)
     if (window.fbq) {
       window.fbq('track', 'Contact', { content_name: platform }, { eventID: eventId });
     }
 
-    // 3. Avisamos a sua CAPI (Serverless Function)
+    // 2. CAPI (Servidor) - ADICIONADO O CAMPO PHONE
     try {
       fetch('/.netlify/functions/fb-event', {
         method: 'POST',
@@ -20,6 +19,7 @@ const Contact = ({ theme }) => {
         body: JSON.stringify({
           eventName: 'Contact',
           eventId: eventId,
+          phone: '5541984107096', // <-- O DADO QUE FALTAVA!
           sourceUrl: window.location.href
         }),
       });
@@ -27,7 +27,6 @@ const Contact = ({ theme }) => {
       console.error("Erro na CAPI:", e);
     }
 
-    // 4. Finalmente, abrimos o link desejado
     window.open(url, '_blank');
   };
   return (
