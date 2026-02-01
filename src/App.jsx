@@ -1,4 +1,5 @@
 import './index.css'; // Certifique-se de que esta linha existe no topo do App.jsx ou main.jsx
+import { CookieBanner } from './components/CookieBanner';
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -96,6 +97,8 @@ const plans = [
 
 return (
   <div className={`min-h-screen font-sans text-slate-300 transition-colors duration-1000 overflow-x-hidden relative ${theme.bg}`}>
+
+    <CookieBanner theme={theme} />
 
     <BackgroundEffects theme={theme} />
 
