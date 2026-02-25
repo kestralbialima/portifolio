@@ -11,7 +11,7 @@
 body {
   margin: 0;
   /* Cor de fundo padrão para evitar o flash branco ao carregar */
-  background-color: #0f172a; 
+  background-color: #0f172a;  
   color: #cbd5e1; /* slate-300 */
   font-size: 1.125rem; 
   line-height: 1.6; /* Melhora o espaçamento entre linhas para UX */
