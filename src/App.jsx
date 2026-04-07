@@ -22,9 +22,9 @@ import Footer from './components/Footer';
  */
 const App = () => {
   // --- ESTADOS GLOBAIS ---
-  const [activeTheme, setActiveTheme] = useState('default'); 
-  const [view, setView] = useState('home'); 
-  const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [activeTheme, setActiveTheme] = useState('default');
+  const [view, setView] = useState('home');
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   // --- ESTADOS DE UI ---
   const theme = themes[activeTheme];
@@ -116,7 +116,7 @@ const App = () => {
 
       <main className="relative pt-20">
         <AnimatePresence mode="wait">
-          
+
           {/* VIEW 1: HOME */}
           {view === 'home' && (
             <motion.div key="home" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
@@ -131,7 +131,7 @@ const App = () => {
                       <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="p-8 rounded-[2rem] bg-white/3 border border-white/10 backdrop-blur-sm">
                         <div className={`${theme.accent} mb-6`}>{step.icon}</div>
                         <h4 className="text-lg font-black text-white mb-3 uppercase">{step.title}</h4>
-                        <p className="text-slate-500 text-sm leading-relaxed">{step.desc}</p>
+                        <p className="text-slate-300 text-base md:text-lg leading-relaxed font-medium"> {step.desc} </p>
                       </motion.div>
                     ))}
                   </div>
@@ -148,7 +148,7 @@ const App = () => {
                         <div className={`${theme.accent} mb-8`}>{plan.icon}</div>
                         <h3 className="text-xl font-black text-white mb-4 uppercase tracking-tighter">{plan.title}</h3>
                         <p className="text-slate-400 text-sm mb-8 leading-relaxed font-medium">{plan.desc}</p>
-                        <button onClick={() => handleOpenProjects(plan.title)} className={`w-full py-4 rounded-xl font-black text-[10px] uppercase tracking-widest transition-all ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white hover:bg-white/10'}`}>Explorar {plan.title}</button>
+                        <button onClick={() => handleOpenProjects(plan.title)} className={`w-full py-4 rounded-xl font-black text-[15px] uppercase tracking-widest transition-all ${plan.popular ? theme.button + ' text-white' : 'bg-white/5 text-white hover:bg-white/10'}`}>Explorar {plan.title}</button>
                       </motion.div>
                     ))}
                   </div>
@@ -156,7 +156,7 @@ const App = () => {
               </section>
 
               <About theme={theme} />
-              
+
               <section id="faq" className="py-24 px-6 border-t border-white/5">
                 <div className="max-w-4xl mx-auto">
                   <div className="text-center mb-16">
@@ -189,7 +189,7 @@ const App = () => {
           {view === 'catalogo' && (
             <motion.div key="catalogo" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="min-h-screen pb-24">
               <div className="max-w-7xl mx-auto px-6 pt-8 text-center">
-                <motion.button 
+                <motion.button
                   onClick={handleBackToHome}
                   whileHover={{ scale: 1.05 }}
                   className="group relative flex items-center gap-3 mx-auto mb-10 px-8 py-3 rounded-full border border-white/10 bg-white/5"
@@ -210,12 +210,12 @@ const App = () => {
         {/* MENU MOBILE OVERLAY - CORREÇÃO DO X */}
         <AnimatePresence>
           {isMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: '100%' }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: '100%' }}
               className="fixed inset-0 z-[300] bg-black/95 backdrop-blur-3xl flex flex-col items-center justify-center gap-8"
             >
               <button onClick={() => setIsMenuOpen(false)} className="absolute top-8 right-8 text-white p-2">
-                <X size={32} /> 
+                <X size={32} />
               </button>
               {['processo', 'solucoes', 'faq'].map(id => (
                 <button key={id} onClick={() => scrollTo(id)} className="text-3xl font-black uppercase text-white">{id}</button>
