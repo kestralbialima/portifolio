@@ -51,5 +51,19 @@ export const themes = {
     heroTitle: "VITRINE SMART",
     subTitle: "Sua vitrine online: transformando visual em pedidos direto no seu WhatsApp.",
     fontSize: "text-5xl md:text-[7.5rem]"
-  }
+  },
+  estetica: {
+  name: "Estética",
+  bg: "bg-[#0f0a0a]", // Um marrom café extremamente escuro, quase preto, para o modo dark
+  accent: "text-rose-300",
+  glow: "rgba(253, 164, 175, 0.5)", // Brilho suave em tom de rosa
+  lineColor: "bg-rose-300",
+  particle: "bg-rose-200",
+  button: "bg-rose-500 hover:bg-rose-400",
+  gradient: "from-rose-200 via-rose-400 to-amber-100",
+  heroTitle: "ESTÉTICA DE LUXO",
+  subTitle: "Sua clínica merece uma vitrine que reflita a excelência e o cuidado de cada procedimento.",
+  fontSize: "text-5xl md:text-[6.5rem]"
+},
+
 };
