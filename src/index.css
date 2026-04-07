@@ -1,27 +1,45 @@
 @import "tailwindcss";
 
-/* Configuração de Origem (Source) para Tailwind v4:
-  Como o index.css está dentro de 'src', usamos './' para indicar 
-  que os arquivos estão na mesma pasta ou em subpastas.
-*/
-@source "./App.jsx";
-@source "./components/**/*.{jsx,js}";
-
-/* Estilos Globais Base */
 body {
   margin: 0;
-  /* Cor de fundo padrão para evitar o flash branco ao carregar */
-  background-color: #0f172a;  
-  color: #cbd5e1; /* slate-300 */
-  font-size: 1.125rem; 
-  line-height: 1.6; /* Melhora o espaçamento entre linhas para UX */
+  background-color: #020617;
+  color: #f8fafc;
+  
+  /* Base para o corpo do texto (20px) */
+  font-size: 1.25rem; 
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Garante que o container principal ocupe a tela toda */
-#root {
-  min-height: 100vh;
+/* 🎯 O Pulo do Gato para as descrições dos cards */
+p {
+  /* Garante que descrições não fiquem menores que 18px (1.125rem) */
+  font-size: 1.125rem; 
+  /* Cor um pouco mais clara para não sumir no fundo escuro */
+  color: #cbd5e1; 
+  line-height: 1.6;
+}
+
+/* Títulos dos Cards (Estratégia, Design, etc) */
+h3 {
+  font-size: 1.75rem; /* ~28px */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+}
+
+/* Título Principal da Sessão (Metodologia Core) */
+h2 {
+  font-size: 2.5rem; /* ~40px */
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.0em;
+  margin-bottom: 2rem;
+}
+/* Força a redução do espaçamento em qualquer texto dentro do Hero */
+#hero h2, #hero p, .hero-text {
+  letter-spacing: -0.02em !important; /* Aproxima levemente as letras */
+  word-spacing: -0.1em !important;   /* Reduz o espaço entre as palavras injetado pela função */
 }

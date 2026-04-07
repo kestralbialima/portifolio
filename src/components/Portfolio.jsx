@@ -12,7 +12,7 @@ const Portfolio = ({ theme, activeTheme, onSetTheme, selectedCategory }) => {
       type: "Landing Page",
       title: "Washington Cezar Tattoo",
       demo: "kestralbialima.github.io/projeto-wcezar/",
-      image: "site-wcezar.jpg",
+      image: "/site-wcezar.jpg",
       description: "Design imersivo focado em atrair leads qualificados e valorizar o trabalho do artista através de uma estética dark e exclusiva.",
       imageColor: "from-red-900/40 to-black"
     },
@@ -20,27 +20,28 @@ const Portfolio = ({ theme, activeTheme, onSetTheme, selectedCategory }) => {
       category: "gastronomia",
       type: "Vitrine Digital",
       demo: "kestralbialima.github.io/confeitaria/",
-      image: "cor-de-abobora.png",
+      image: "/cor-de-abobora.png",
       title: "Confeitaria Artesanal",
       description: "Vendas diretas via WhatsApp com catálogo dinâmico, eliminando taxas de aplicativos e facilitando a gestão de pedidos.",
       imageColor: "from-orange-900/40 to-black"
     },
+    
     {
       category: "corporativo",
       type: "Landing Page",
       title: "Marco Alcaraz Assessoria",
       demo: "kestralbialima.github.io/marco-/",
-      image: "marco.jpeg",
+      image: "/marco.jpeg",
       description: "Portal jurídico focado em autoridade digital, projetado para transmitir confiança e converter visitantes em clientes potenciais.",
       imageColor: "from-cyan-900/40 to-black"
     },
     {
       category: "estetica", // Você precisará criar este tema no themes.js
       type: "Landing Page",
-      title: "Clínica de Estética Vitalle",
+      title: "Clínica de Estética Projeto disponível",
       demo: "kestralbialima.github.io/landing-page-estetica-essenza/",
-      image: "essenza.png",
-      description: "Landing page de alta conversão com foco em agendamentos diretos e apresentação de procedimentos estéticos de luxo.",
+      image: "/essenza.png",
+      description: "Landing page de alta conversão com foco em agendamentos diretos e apresentação de procedimentos estéticos disponível para aquisição.",
       imageColor: "from-rose-100/40 to-white"
     }
   ], []);

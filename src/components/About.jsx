@@ -28,7 +28,7 @@ const About = ({ theme }) => {
                             <div className={`absolute -inset-1 bg-gradient-to-r ${theme.gradient} rounded-[2rem] blur opacity-25 group-hover:opacity-50 transition duration-1000`}></div>
                             <div className="relative w-44 h-56 md:w-52 md:h-64 bg-slate-800 rounded-[2rem] overflow-hidden border border-white/10">
                                 <img
-                                    src="bianca.jpeg"
+                                    src="/bianca.jpeg"
                                     alt="Bianca Lima"
                                     className={`w-full h-full object-cover transition-all duration-700 ${isOpen ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0'}`}
                                 />
