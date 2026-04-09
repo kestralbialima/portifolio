@@ -65,5 +65,18 @@ export const themes = {
   subTitle: "Sua clínica merece uma vitrine que reflita a excelência e o cuidado de cada procedimento.",
   fontSize: "text-5xl md:text-[6.5rem]"
 },
+psicanalise: {
+    name: "Psicanálise",
+    bg: "bg-[#0a0f0d]", // Um verde floresta extremamente escuro, quase preto
+    accent: "text-emerald-300",
+    glow: "rgba(110, 231, 183, 0.4)", // Brilho suave em tom esmeralda
+    lineColor: "bg-emerald-300",
+    particle: "bg-emerald-200",
+    button: "bg-emerald-600 hover:bg-emerald-500",
+    gradient: "from-emerald-300 via-emerald-500 to-slate-400",
+    heroTitle: "SISTEMAS CLÍNICOS",
+    subTitle: "Segurança de nível bancário e gestão personalizada para o sigilo absoluto que a psicanálise exige.",
+    fontSize: "text-4xl md:text-[6.0rem]" // Um pouco menor para caber o título longo
+  },
 
 };
