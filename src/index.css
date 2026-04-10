@@ -1,19 +1,105 @@
 @import "tailwindcss";
 
-/* Estilos Globais Mínimos */
-body {
-  margin: 0;
-  background-color: #020617; /* Slate-950 */
-  color: #f8fafc;
-  font-size: 1rem; /* Volta para o padrão de 16px */
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* ==========================================================================
+  CONFIGURAÇÃO DE TEMA (Tailwind v4)
+  ========================================================================== 
+*/
+@theme {
+  /* Variáveis para o novo tema de Psicanálise */
+  --color-psico-primary: #0a0f0d;
+  --color-psico-accent: #6ee7b7;
 }
 
-#root {
-  min-height: 100vh;
+/* ==========================================================================
+  ESTILOS GLOBAIS
+  ========================================================================== 
+*/
+@layer base {
+  body {
+    margin: 0;
+    background-color: #020617; /* Slate-950 */
+    color: #f8fafc;
+    font-size: 1rem;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    /* Impede scrolls laterais indesejados que causam bugs no mobile */
+    overflow-x: hidden; 
+    width: 100%;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  /* Reset de comportamento de scroll para suavidade nativa */
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
-/* Remove qualquer formatação global de h1, h2, h3 que adicionamos antes */
+/* ==========================================================================
+  UTILITÁRIOS DE PERFORMANCE (Aceleração de Hardware)
+  ========================================================================== 
+*/
+@layer utilities {
+  /* Esta classe força o uso da GPU. 
+     Aplique nos cards de projetos e seções que parecem 'lentas' no celular.
+  */
+  .will-change-render {
+    will-change: transform, opacity;
+    transform: translateZ(0); 
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* FIX PARA O MENU INFERIOR (Mata o 'fantasma' e trepidações)
+  */
+  .menu-container-fix {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    /* Cria uma camada de renderização isolada */
+    transform: translateZ(0); 
+    -webkit-transform: translateZ(0);
+    /* Melhora a performance do efeito Blur no Mobile */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* Garante que o menu não receba eventos de clique do que está atrás */
+    pointer-events: auto;
+  }
+}
+
+/* ==========================================================================
+  AJUSTES DE RENDERIZAÇÃO DE IMAGEM
+  ========================================================================== 
+*/
+img {
+  /* Evita que a imagem 'pule' ao carregar */
+  content-visibility: auto;
+}
+
+/* ==========================================================================
+  SCROLLBAR CUSTOMIZADA (Opcional, para estética dark)
+  ========================================================================== 
+*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}

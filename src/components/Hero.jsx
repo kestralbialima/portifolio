@@ -2,11 +2,11 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 
-const Hero = ({ theme, activeTheme }) => {
+// Adicionada a prop onScrollTo para permitir o clique no ícone
+const Hero = ({ theme, activeTheme, onScrollTo }) => {
   return (
     <section className="relative pt-44 pb-20 px-6 text-center z-20 min-h-[85vh] flex flex-col justify-center">
       <AnimatePresence mode="wait">
-        {/* O key={activeTheme} faz o React reiniciar a animação toda vez que o tema muda */}
         <motion.div 
           key={activeTheme} 
           initial={{ opacity: 0, y: 10 }} 
@@ -33,7 +33,6 @@ const Hero = ({ theme, activeTheme }) => {
                       />
                     )}
                   </span>
-                  {/* Adiciona espaço entre as palavras, exceto na última */}
                   {i < arr.length - 1 && "\u00A0"}
                 </React.Fragment>
               );
@@ -45,14 +44,19 @@ const Hero = ({ theme, activeTheme }) => {
         </motion.div>
       </AnimatePresence>
 
-      {/* Ícone de scroll animado */}
-      <motion.div 
+      {/* Ícone de scroll convertido em BOTÃO com evento de clique */}
+      <motion.button 
+        onClick={() => onScrollTo('processo')} // Ancoragem para a seção de Metodologia
         animate={{ y: [0, 10, 0] }} 
         transition={{ duration: 3, repeat: Infinity }} 
-        className="mt-20 opacity-20"
+        className="mt-20 opacity-20 hover:opacity-100 transition-opacity cursor-pointer mx-auto block group"
       >
-        <ChevronDown className="mx-auto text-white" />
-      </motion.div>
+        <ChevronDown 
+          className="mx-auto text-white group-hover:scale-125 transition-transform" 
+          size={32} 
+        />
+        <span className="sr-only">Rolar para Metodologia</span>
+      </motion.button>
     </section>
   );
 };

@@ -38,7 +38,7 @@ const About = ({ theme }) => {
                         <div className="flex-1 text-center md:text-left">
                             {/* Ajuste: tracking-tight e leading-relaxed para compactar levemente a leitura */}
                             <p className="text-slate-200 text-base md:text-lg leading-relaxed tracking-tight mb-4 font-medium">
-                                Me chamo Bianca, sou desenvolvedora em formação Full Stack, com background em vendas de sistemas e forte contato com as necessidades reais dos clientes. Sempre tive curiosidade em entender como as coisas funcionam, especialmente no universo da tecnologia.
+                                Me chamo Bianca, sou desenvolvedora Full Stack, com background em vendas de sistemas e forte contato com as necessidades reais dos clientes. Sempre tive curiosidade em entender como as coisas funcionam, especialmente no universo da tecnologia.
                             </p>
 
                             <AnimatePresence>
